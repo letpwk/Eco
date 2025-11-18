@@ -125,19 +125,36 @@ class _InicioState extends State<Inicio> {
     );
   }
 
-  // BOTÕES DO MENU
+   // Botões do menu
   Widget _menuButton(BuildContext context, String label, Widget page) {
-    return GestureDetector(
-      onTap: () {
+    bool isHovered = false;
+    return StatefulBuilder(
+      builder: (context, setState) {
+
+        return MouseRegion (
+          onEnter: (_) => setState(() => isHovered = true),
+          onExit: (_) => setState(() => isHovered = false),
+          
+          child: GestureDetector(
+            onTap: () {
         Navigator.push(context, MaterialPageRoute(builder: (_) => page));
       },
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12),
+        child: Container(
+          padding: EdgeInsets.symmetric(
+            horizontal: isHovered ? 18 : 12,
+            vertical: isHovered ? 12 : 8,
+          ),
+          decoration: BoxDecoration(color: isHovered ? const Color.fromARGB(255, 79, 109, 54) : Colors.transparent,
+          borderRadius: BorderRadius.circular(4),
+          ), 
         child: Text(
           label,
           style: const TextStyle(color: Colors.white, fontSize: 18),
-        ),
-      ),
+                ),
+              ),
+            ),
+        );
+      },
     );
   }
 }
