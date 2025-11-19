@@ -1,10 +1,201 @@
+import 'package:ecoponto/guias/contato.dart';
+import 'package:ecoponto/guias/informacoes.dart';
+import 'package:ecoponto/guias/inicio.dart';
+import 'package:ecoponto/guias/pontosColeta.dart';
+import 'package:ecoponto/guias/sobre.dart';
 import 'package:flutter/material.dart';
 
-class Contato extends StatelessWidget {
+class Contato extends StatefulWidget {
   const Contato({super.key});
 
   @override
+  State<Contato> createState() => _ContatoState();
+}
+
+class _ContatoState extends State<Contato> {
+  @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 255, 251, 240),
+
+      body: Column(
+        children: [
+          Container(
+            height: 100,
+            width: double.infinity,
+            color: const Color.fromRGBO(49, 74, 32, 1),
+            alignment: Alignment.center,
+            child: const Text(
+              "Eco+",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 32,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+
+          Container(
+            height: 55,
+            color: const Color.fromRGBO(106, 142, 75, 1),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _menuButton(context, "Início", const Inicio()),
+                _menuButton(context, "Informações", const Informacoes()),
+                _menuButton(context, "Pontos de Coleta", const Pontos()),
+                _menuButton(context, "Contato", const Contato()),
+                _menuButton(context, "Sobre", const Sobre()),
+              ],
+            ),
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 60,
+                  vertical: 40,
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      width: 400,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text(
+                            "Quer entrar em contato\ncom a gente?",
+                            style: TextStyle(
+                              fontSize: 32,
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromRGBO(49, 74, 32, 1),
+                            ),
+                          ),
+                          SizedBox(height: 20),
+                          Text(
+                            "Se você tem alguma dúvida em relação aos Ecopontos, ou algo do tema de descarte, envie sua mensagem pelo\nformulário ao lado e vamos bater um papo sobre :)",
+                            style: TextStyle(
+                              fontSize: 25,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      width: 420,
+                      child: Column(
+                        children: [
+                          TextField(
+                            decoration: InputDecoration(
+                              hintText: "Digite o seu nome*",
+                              filled: true,
+                              fillColor: Colors.white,
+                              contentPadding: EdgeInsets.symmetric(
+                                horizontal: 12,
+                              ),
+                              border: OutlineInputBorder(),
+                            ),
+                          ),
+                          const SizedBox(height: 15),
+                          TextField(
+                            decoration: InputDecoration(
+                              hintText: "Digite o seu e-mail*",
+                              filled: true,
+                              fillColor: Colors.white,
+                              contentPadding: EdgeInsets.symmetric(
+                                horizontal: 12,
+                              ),
+                              border: OutlineInputBorder(),
+                            ),
+                          ),
+                          const SizedBox(height: 15),
+                          TextField(
+                            maxLines: 6,
+                            decoration: InputDecoration(
+                              hintText: "Como podemos te ajudar?*",
+                              filled: true,
+                              fillColor: Colors.white,
+                              contentPadding: EdgeInsets.all(12),
+                              border: OutlineInputBorder(),
+                            ),
+                          ),
+                          const SizedBox(height: 25),
+                          SizedBox(
+                            width: 120,
+                            height: 40,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Color.fromRGBO(49, 74, 32, 1),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(6),
+                                ),
+                              ),
+                              onPressed: () {},
+                              child: const Text(
+                                "Enviar",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          SizedBox(height: 50),
+          Container(
+            height: 50,
+            width: double.infinity,
+            color: const Color.fromRGBO(49, 74, 32, 1),
+            alignment: Alignment.center,
+            child: const Text(
+              "Projeto Educacional - Desenvolvido para conscientização ambiental em Porto Velho",
+              style: TextStyle(color: Colors.white, fontSize: 14),
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ],
+      ),
+    );
   }
+}
+
+Widget _menuButton(BuildContext context, String label, Widget page) {
+  bool isHovered = false;
+  return StatefulBuilder(
+    builder: (context, setState) {
+      return MouseRegion(
+        onEnter: (_) => setState(() => isHovered = true),
+        onExit: (_) => setState(() => isHovered = false),
+
+        child: GestureDetector(
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (_) => page));
+          },
+          child: Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: isHovered ? 18 : 12,
+              vertical: isHovered ? 12 : 8,
+            ),
+            decoration: BoxDecoration(
+              color: isHovered
+                  ? const Color.fromARGB(255, 79, 109, 54)
+                  : Colors.transparent,
+              borderRadius: BorderRadius.circular(4),
+            ),
+            child: Text(
+              label,
+              style: const TextStyle(color: Colors.white, fontSize: 18),
+            ),
+          ),
+        ),
+      );
+    },
+  );
 }
