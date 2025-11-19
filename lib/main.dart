@@ -1,3 +1,4 @@
+import 'package:ecoponto/guias/informacoes.dart';
 import 'package:ecoponto/guias/inicio.dart';
 import 'package:flutter/material.dart';
 
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 48, 114, 50)),
       ),
-      home: Inicio(),
+      home: Informacoes(),
     );
   }
 }

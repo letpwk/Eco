@@ -15,11 +15,10 @@ class _InicioState extends State<Inicio> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 255, 251, 240), // fundo bege CLARO igual imagem
+      backgroundColor: const Color.fromARGB(255, 255, 251, 240),
 
       body: Column(
         children: [
-          // TOPO VERDE
           Container(
             height: 100,
             width: double.infinity,
@@ -35,7 +34,6 @@ class _InicioState extends State<Inicio> {
             ),
           ),
 
-          // MENU VERDE CLARO
           Container(
             height: 55,
             color: const Color.fromRGBO(106, 142, 75, 1),
@@ -51,13 +49,11 @@ class _InicioState extends State<Inicio> {
             ),
           ),
 
-          // CONTEÚDO
           Expanded(
             child: SingleChildScrollView(
               child: Column(
                 children: [
                   const SizedBox(height: 30),
-
                   const Text(
                     "Descubra onde descartar corretamente seus resíduos",
                     style: TextStyle(
@@ -67,15 +63,11 @@ class _InicioState extends State<Inicio> {
                     ),
                     textAlign: TextAlign.center,
                   ),
-
-                  const SizedBox(height: 20),
-
+                  const SizedBox(height: 30),
                   const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 40),
+                    padding: EdgeInsets.only(bottom: 10),
                     child: Text(
-                      "Os ecopontos são locais adequados para o descarte de materiais recicláveis, eletrônicos, "
-                      "entulhos e outros resíduos específicos. Esta plataforma ajuda você a localizar ecopontos "
-                      "em Porto Velho de forma simples e rápida.",
+                      "Os ecopontos são locais adequados para o descarte de materiais recicláveis, eletrônicos, entulhos e outros \nresíduos específicos. Esta plataforma ajuda você a localizar ecopontos em Porto Velho de forma simples e rápida.",
                       style: TextStyle(
                         fontSize: 18,
                         height: 1.4,
@@ -83,20 +75,17 @@ class _InicioState extends State<Inicio> {
                       textAlign: TextAlign.center,
                     ),
                   ),
-
                   const SizedBox(height: 25),
-
-                  // IMAGEM DO MAPA
                   Center(
                     child: Container(
-                      width: 600,
-                      height: 330,
+                      width: 950,
+                      height: 500,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(4),
                       ),
                       child: Image.asset(
-                        "assets/mapa.png", // coloque sua imagem aqui
+                        "lib/imagens/inicio.png",
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -108,7 +97,6 @@ class _InicioState extends State<Inicio> {
             ),
           ),
 
-          // RODAPÉ VERDE ESCURO
           Container(
             height: 50,
             width: double.infinity,
@@ -125,7 +113,6 @@ class _InicioState extends State<Inicio> {
     );
   }
 
-   // Botões do menu
   Widget _menuButton(BuildContext context, String label, Widget page) {
     bool isHovered = false;
     return StatefulBuilder(
