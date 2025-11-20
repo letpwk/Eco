@@ -16,10 +16,8 @@ class _PontosState extends State<Pontos> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 255, 251, 240),
-
       body: Column(
         children: [
-          // TOPO
           Container(
             height: 100,
             width: double.infinity,
@@ -34,9 +32,7 @@ class _PontosState extends State<Pontos> {
               ),
             ),
           ),
-
-          // MENU
-          Container(
+          Container( //menu
             height: 55,
             color: const Color.fromRGBO(106, 142, 75, 1),
             child: Row(
@@ -50,8 +46,6 @@ class _PontosState extends State<Pontos> {
               ],
             ),
           ),
-
-          // CONTEÚDO
           Expanded(
             child: SingleChildScrollView(
               child: Padding(
@@ -68,14 +62,10 @@ class _PontosState extends State<Pontos> {
                         color: Color.fromRGBO(49, 74, 32, 1),
                       ),
                     ),
-
                     const SizedBox(height: 25),
-
-                    // BUSCA + ORDENAR
-                    Row(
+                    Row( //barra de pesquisa
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        // CAIXA DE TEXTO
                         SizedBox(
                           width: 350,
                           child: TextField(
@@ -89,11 +79,8 @@ class _PontosState extends State<Pontos> {
                             ),
                           ),
                         ),
-
                         const SizedBox(width: 20),
-
-                        // ORDENAR BOTÃO
-                        SizedBox(
+                        SizedBox( //botão ordenar por
                           width: 160,
                           height: 48,
                           child: OutlinedButton(
@@ -110,10 +97,7 @@ class _PontosState extends State<Pontos> {
                         )
                       ],
                     ),
-
                     const SizedBox(height: 30),
-
-                    // MAPA (AQUI VOCÊ PODE COLOCAR O WIDGET DO MAPA DEPOIS)
                     Container(
                       height: 350,
                       width: 700,
@@ -128,14 +112,9 @@ class _PontosState extends State<Pontos> {
                         style: TextStyle(color: Colors.black54),
                       ),
                     ),
-
                     const SizedBox(height: 40),
-
-                    // LISTA DOS TIPOS DE MATERIAIS
                     _tituloSessao("Locais de Coleta por Tipo de Material"),
-
                     const SizedBox(height: 20),
-
                     _categoria(
                       "Plásticos e Papéis",
                       [
@@ -147,9 +126,7 @@ class _PontosState extends State<Pontos> {
                         "Delegacia de Crimes Ambientais — Av. José Amador dos Reis, 3214, JK",
                       ],
                     ),
-
                     const SizedBox(height: 30),
-
                     _categoria(
                       "Vidro",
                       [
@@ -157,9 +134,7 @@ class _PontosState extends State<Pontos> {
                         "Parque da Cidade — Av. Calama, Flodoaldo Pontes Pinto",
                       ],
                     ),
-
                     const SizedBox(height: 30),
-
                     _categoria(
                       "Metal",
                       [
@@ -167,18 +142,14 @@ class _PontosState extends State<Pontos> {
                         "Faculdade Católica — Av. Gov. Jorge Teixeira, 4100, Industrial",
                       ],
                     ),
-
                     const SizedBox(height: 30),
-
                     _categoria(
                       "Orgânico",
                       [
                         "EMEI Ronilza Cordeiro — Rua João Paulo I, Novo Horizonte",
                       ],
                     ),
-
                     const SizedBox(height: 30),
-
                     _categoria(
                       "Eletrônicos",
                       [
@@ -186,15 +157,12 @@ class _PontosState extends State<Pontos> {
                         "Faculdade Católica — Av. Gov. Jorge Teixeira, 4100, Industrial",
                       ],
                     ),
-
                     const SizedBox(height: 50),
                   ],
                 ),
               ),
             ),
           ),
-
-          // RODAPÉ
           Container(
             height: 50,
             width: double.infinity,
@@ -212,23 +180,17 @@ class _PontosState extends State<Pontos> {
   }
 }
 
-
-// ------------------------- COMPONENTES -------------------------
-
 Widget _menuButton(BuildContext context, String label, Widget page) {
   bool isHovered = false;
-
   return StatefulBuilder(
     builder: (context, setState) {
       return MouseRegion(
         onEnter: (_) => setState(() => isHovered = true),
         onExit: (_) => setState(() => isHovered = false),
-
         child: GestureDetector(
           onTap: () {
             Navigator.push(context, MaterialPageRoute(builder: (_) => page));
           },
-
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 150),
             padding: EdgeInsets.symmetric(
