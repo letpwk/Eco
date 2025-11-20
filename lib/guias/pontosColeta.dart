@@ -53,7 +53,6 @@ class _PontosState extends State<Pontos> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-
                     const Text(
                       "Encontre os Ecopontos mais próximos de você!",
                       style: TextStyle(
@@ -98,20 +97,20 @@ class _PontosState extends State<Pontos> {
                       ],
                     ),
                     const SizedBox(height: 30),
-                    Container(
-                      height: 350,
-                      width: 700,
+                    Center(
+                    child: Container(
+                      width: 950,
+                      height: 500,
                       decoration: BoxDecoration(
-                        color: Colors.grey[300],
-                        borderRadius: BorderRadius.circular(6),
-                        border: Border.all(color: Colors.grey),
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(4),
                       ),
-                      alignment: Alignment.center,
-                      child: const Text(
-                        "MAPA AQUI",
-                        style: TextStyle(color: Colors.black54),
+                      child: Image.asset(
+                        "lib/imagens/inicio.png",
+                        fit: BoxFit.cover,
                       ),
                     ),
+                  ),
                     const SizedBox(height: 40),
                     _tituloSessao("Locais de Coleta por Tipo de Material"),
                     const SizedBox(height: 20),
