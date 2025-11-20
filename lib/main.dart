@@ -1,5 +1,4 @@
 import 'package:ecoponto/guias/informacoes.dart';
-import 'package:ecoponto/guias/inicio.dart';
 import 'package:flutter/material.dart';
 
 void main() {

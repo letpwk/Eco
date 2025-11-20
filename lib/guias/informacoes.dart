@@ -1,5 +1,4 @@
 import 'package:ecoponto/guias/contato.dart';
-import 'package:ecoponto/guias/informacoes.dart';
 import 'package:ecoponto/guias/inicio.dart';
 import 'package:ecoponto/guias/pontosColeta.dart';
 import 'package:ecoponto/guias/sobre.dart';
